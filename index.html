@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Stick Hero | لعبة العصا</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="topbar" aria-label="شريط علوي">
+      <div class="brand">
+        <span class="logo">🕹️</span>
+        <div class="titles">
+          <div class="name">Stick Hero</div>
+          <div class="sub">اضغط مطوّلًا لتطويل العصا — اترك لتسقط</div>
+        </div>
+      </div>
+
+      <div class="hud">
+        <div class="pill"><span class="label">اللاعب</span><span id="playerName" class="value">—</span></div>
+        <div class="pill"><span class="label">النقاط</span><span id="score" class="value">٠</span></div>
+        <div class="pill"><span class="label">المستوى</span><span id="level" class="value">١</span></div>
+        <div class="pill"><span class="label">أفضل نتيجة</span><span id="best" class="value">٠</span></div>
+        <button id="btnSound" class="iconBtn" title="الصوت" aria-label="تبديل الصوت">🔊</button>
+        <button id="btnRestart" class="btn" aria-label="إعادة" title="إعادة">إعادة</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <canvas id="c" width="900" height="520" aria-label="Canvas اللعبة"></canvas>
+
+      <!-- Overlay: Start / Quiz / End -->
+      <div class="overlay" id="overlay">
+        <div class="card" id="cardStart">
+          <div class="big">🎯</div>
+          <h1>ابدأ اللعب</h1>
+
+          <label class="field">
+            <span>اسم اللاعب</span>
+            <input id="nameInput" type="text" inputmode="text" maxlength="18" placeholder="اكتب اسمك هنا" autocomplete="name" />
+          </label>
+
+          <p class="small">
+            <b>الجوال:</b> اضغط مطوّلًا على الشاشة ثم اترك<br/>
+            <b>الكمبيوتر:</b> اضغط مطوّلًا زر المسافة ثم اترك
+          </p>
+
+          <button id="btnPlay" class="btn primary">ابدأ</button>
+          <p class="hint">ملاحظة: أول لمسة تشغّل الصوت تلقائيًا 👍</p>
+        </div>
+
+        <div class="card hidden" id="cardQuiz">
+          <div class="rowTop">
+            <div class="tag">فرصة إنقاذ ✨</div>
+            <div class="timer">⏳ <span id="quizTime">٣٠</span></div>
+          </div>
+
+          <h2 id="quizTitle">سؤال سريع</h2>
+
+          <div class="quizBox">
+            <div class="expr" id="quizExpr">—</div>
+            <div class="visual" id="quizVisual" aria-label="تمثيل مرئي"></div>
+          </div>
+
+          <div class="choices" id="quizChoices"></div>
+
+          <div class="quizHint">إذا أجبت <b>صح</b> تكمل اللعب بدون خسارة نقاط — إذا أجبت <b>خطأ</b> تبدأ من جديد.</div>
+        </div>
+
+        <div class="card hidden" id="cardEnd">
+          <div class="big">🏁</div>
+          <h1>انتهت اللعبة</h1>
+          <p id="endText">—</p>
+          <button id="btnAgain" class="btn primary">العب مرة أخرى</button>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="rights">
+          جميع الحقوق محفوظة لـ <b>سلمان الجنيدي</b>
+        </div>
+        <div class="links">
+          <a class="linkBtn" href="https://snapchat.com/t/TWkLDVZr" target="_blank" rel="noopener" aria-label="سناب شات">
+            👻 <span>Snap</span>
+          </a>
+          <a class="linkBtn" href="https://wa.me/966566996166" target="_blank" rel="noopener" aria-label="واتساب">
+            💬 <span>WhatsApp</span>
+          </a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
