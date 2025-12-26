@@ -1,109 +1,0 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Stick Hero | لعبة العصا</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <div class="wrap">
-    <header class="topbar">
-      <div class="left">
-        <div class="chip">
-          <span class="chipLabel">اللاعب</span>
-          <span id="playerName" class="chipValue">—</span>
-        </div>
-        <div class="chip">
-          <span class="chipLabel">المرحلة</span>
-          <span id="level" class="chipValue">١</span>
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="chip">
-          <span class="chipLabel">النقاط</span>
-          <span id="score" class="chipValue big">٠</span>
-        </div>
-        <div class="chip">
-          <span class="chipLabel">أفضل نتيجة</span>
-          <span id="best" class="chipValue">٠</span>
-        </div>
-
-        <button id="btnSound" class="iconBtn" title="الصوت" aria-label="تبديل الصوت">🔊</button>
-        <button id="btnRestart" class="btn" title="إعادة" aria-label="إعادة">إعادة</button>
-      </div>
-    </header>
-
-    <main class="stage">
-      <div class="playArea">
-        <canvas id="c" width="900" height="520"></canvas>
-
-        <div class="overlay" id="startOverlay">
-          <div class="card">
-            <div class="titleRow">
-              <div class="badge">🕹️</div>
-              <div>
-                <h1>Stick Hero</h1>
-                <p class="sub">اضغط مطوّلًا لتطويل العصا — اتركها لتسقط</p>
-              </div>
-            </div>
-
-            <label class="field">
-              <span>اسم اللاعب</span>
-              <input id="nameInput" type="text" inputmode="text" maxlength="18" placeholder="اكتب اسمك هنا" />
-            </label>
-
-            <div class="how">
-              <div><b>الجوال:</b> لمس مطوّل ثم إفلات</div>
-              <div><b>الكمبيوتر:</b> Space مطوّل ثم إفلات</div>
-            </div>
-
-            <button id="btnPlay" class="btn primary">ابدأ</button>
-            <p class="hint">ملاحظة: أول لمسة/ضغط تشغّل الصوت تلقائيًا.</p>
-          </div>
-        </div>
-
-        <div class="overlay hidden" id="quizOverlay" aria-hidden="true">
-          <div class="card quizCard">
-            <div class="quizTop">
-              <div class="quizTitle">سؤال إنقاذ 🎯</div>
-              <div class="timerPill">⏱ <span id="quizTimer">٣٠</span> ث</div>
-            </div>
-
-            <div class="qRow">
-              <div class="qText" id="quizText">—</div>
-              <div class="qMeta">اختر الإجابة الصحيحة خلال ٣٠ ثانية لتكمل بدون خسارة نقاطك</div>
-            </div>
-
-            <div class="repr" id="reprBox" aria-label="تمثيل بصري"></div>
-            <div class="choices" id="choicesBox"></div>
-
-            <div class="quizFooter">
-              <span class="mini">الأرقام: عربية</span>
-              <span class="mini">النطاق: ٠–١٠</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <div class="rights">
-          جميع الحقوق محفوظة لـ <b>سلمان الجنيدي</b>
-        </div>
-        <div class="social">
-          <a class="socialBtn" href="https://snapchat.com/t/TWkLDVZr" target="_blank" rel="noopener" aria-label="سناب شات">
-            👻 <span>Snap</span>
-          </a>
-          <a class="socialBtn" href="https://wa.me/966566996166" target="_blank" rel="noopener" aria-label="واتساب">
-            💬 <span>WhatsApp</span>
-          </a>
-        </div>
-      </footer>
-    </main>
-  </div>
-
-  <script src="game.js"></script>
-</body>
-</html>
